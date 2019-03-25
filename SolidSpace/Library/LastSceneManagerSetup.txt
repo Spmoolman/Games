@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/FinalFronteir.unity
+- path: Assets/Scenes/FinalFronteir.unity
   isLoaded: 1
   isActive: 1
