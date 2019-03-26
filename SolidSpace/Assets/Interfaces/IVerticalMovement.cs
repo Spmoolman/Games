@@ -2,7 +2,6 @@
 {
     public interface IVerticalMovement
     {
-        int MoveForward();
-        int MoveBackward();
+        void MoveVertical();
     }
 }

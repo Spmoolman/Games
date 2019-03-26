@@ -19,14 +19,9 @@ public class Player : MonoBehaviour, IShip, IHorizontalMovement
         }
     }
 
-    public int MoveLeft()
+    public void MoveHorizontal()
     {
-        throw new System.NotImplementedException();
-    }
-
-    public int MoveRight()
-    {
-        throw new System.NotImplementedException();
+        transform.Translate(Input.GetAxis("Horizontal")*0.2f,0f,0f);
     }
 
     public void Shoot()
@@ -46,6 +41,7 @@ public class Player : MonoBehaviour, IShip, IHorizontalMovement
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        MoveHorizontal();
+
+    }
 }
