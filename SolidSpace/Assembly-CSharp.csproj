@@ -60,16 +60,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\EnemyLeft.cs" />
-    <Compile Include="Assets\EnemyRight.cs" />
-    <Compile Include="Assets\Heart.cs" />
+    <Compile Include="Assets\Classes\EnemyLeft.cs" />
+    <Compile Include="Assets\Classes\EnemyRight.cs" />
+    <Compile Include="Assets\Classes\Heart.cs" />
+    <Compile Include="Assets\Classes\Player.cs" />
+    <Compile Include="Assets\Classes\Scroller.cs" />
     <Compile Include="Assets\Interfaces\IDestroyable.cs" />
     <Compile Include="Assets\Interfaces\IHorizontalMovement.cs" />
     <Compile Include="Assets\Interfaces\IShip.cs" />
+    <Compile Include="Assets\Interfaces\ISpawn.cs" />
     <Compile Include="Assets\Interfaces\IVerticalMovement.cs" />
     <Compile Include="Assets\Interfaces\IWeapon.cs" />
-    <Compile Include="Assets\Player.cs" />
-    <Compile Include="Assets\Scroller.cs" />
+    <Compile Include="Assets\Spawn\SpawnHeart.cs" />
+    <Compile Include="Assets\Spawn\SpawnLeft.cs" />
+    <Compile Include="Assets\Spawn\SpawnRight.cs" />
     <Compile Include="Assets\Weapon\Laser.cs" />
     <Compile Include="Assets\Weapon\Rocket.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
