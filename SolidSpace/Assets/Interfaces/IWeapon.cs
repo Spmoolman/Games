@@ -1,6 +1,6 @@
 ﻿namespace Assets.Interfaces
 {
-    public interface IWeapon
+    public interface IWeapon 
     {
         int Weapon();
     }

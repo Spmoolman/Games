@@ -5,7 +5,5 @@
         int Health { get; set; }
 
         void Shoot();
-        void TakeDamage();
-
     }
 }

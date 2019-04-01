@@ -21,11 +21,6 @@ public class EnemyLeft : MonoBehaviour, IShip, IHorizontalMovement, IVerticalMov
         throw new System.NotImplementedException();
     }
 
-    public void TakeDamage()
-    {
-        throw new System.NotImplementedException();
-    }
-
     // Start is called before the first frame update
     void Start()
     {

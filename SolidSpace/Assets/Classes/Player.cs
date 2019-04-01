@@ -5,6 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour, IShip, IHorizontalMovement
 {
     private IWeapon weapon;
+    private float nextFire;
+
+    public GameObject shot;
+    public Transform shotSpawn;
+    public float fireRate;
 
     public int Health { get; set; } = 3;
 
@@ -16,14 +21,13 @@ public class Player : MonoBehaviour, IShip, IHorizontalMovement
 
     public void Shoot()
     {
-        throw new System.NotImplementedException();
+        if (Input.GetButton("Fire1") && Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+        }
     }
 
-    public void TakeDamage()
-    {
-        throw new System.NotImplementedException();
-    }
-    
     // Use this for initialization
     void Start () {
         weapon = new Laser();
@@ -32,6 +36,7 @@ public class Player : MonoBehaviour, IShip, IHorizontalMovement
 	// Update is called once per frame
 	void Update () {
         MoveHorizontal();
+        Shoot();
     }
 
     void OnTriggerEnter2D(Collider2D trigger)

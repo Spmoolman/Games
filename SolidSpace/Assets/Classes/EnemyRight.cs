@@ -1,20 +1,15 @@
 ﻿using Assets.Interfaces;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyRight : MonoBehaviour, IShip, IHorizontalMovement, IVerticalMovement, IDestroyable
 {
-    private float _dropoffPosition = 9f;
-    public int Health { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    private float _dropoffPosition = -9f;
 
-    public void DestroyGameObject()
-    {
-        if (transform.position.x > _dropoffPosition)
-        {
-            Destroy(gameObject);
-        }
-    }
+    public int Health { get; set; } = 1;
+
+    public GameObject shot;
+    public Transform shotSpawn;
+    public float fireRate;
 
     public void MoveHorizontal()
     {
@@ -28,12 +23,7 @@ public class EnemyRight : MonoBehaviour, IShip, IHorizontalMovement, IVerticalMo
 
     public void Shoot()
     {
-        throw new System.NotImplementedException();
-    }
-
-    public void TakeDamage()
-    {
-        throw new System.NotImplementedException();
+        Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
     }
 
     // Start is called before the first frame update
@@ -47,5 +37,15 @@ public class EnemyRight : MonoBehaviour, IShip, IHorizontalMovement, IVerticalMo
         MoveHorizontal();
         MoveVertical();
         DestroyGameObject();
+        Shoot();
     }
+
+    public void DestroyGameObject()
+    {
+        if (transform.position.x < _dropoffPosition)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }
