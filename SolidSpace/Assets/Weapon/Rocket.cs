@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Assets.Weapon
 {
-    class Rocket: MonoBehaviour, IWeapon, IVerticalMovement, IDestroyable
+    class Rocket: MonoBehaviour, IVerticalMovement, IDestroyable
     {
 
         private float _dropoffPosition = 5f;
@@ -21,15 +21,6 @@ namespace Assets.Weapon
         public void MoveVertical()
         {
             transform.Translate(0, speed, 0f);
-        }
-
-        public int Weapon()
-        {
-            return 2;
-        }
-
-        void Start()
-        {
         }
 
         // Update is called once per frame

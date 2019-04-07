@@ -6,7 +6,7 @@ public class SpawnLeft : MonoBehaviour, ISpawn
     public GameObject Prefab;
     public float SpawnTime = 3f;
     public float StartTimeTime = 3f;
-    public float Spawns = 3;
+    public float Spawns = 3; // dificulty level posibility 
 
     public void SpawnObject()
     {
@@ -27,11 +27,5 @@ public class SpawnLeft : MonoBehaviour, ISpawn
     void Start()
     {
         InvokeRepeating("SpawnObject", StartTimeTime, SpawnTime);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

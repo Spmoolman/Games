@@ -28,10 +28,4 @@ public class SpawnRight : MonoBehaviour, ISpawn
     {
         InvokeRepeating("SpawnObject", StartTimeTime, SpawnTime);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

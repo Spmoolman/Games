@@ -1,7 +1,9 @@
-﻿namespace Assets.Interfaces
+﻿using UnityEngine;
+
+namespace Assets.Interfaces
 {
     public interface IWeapon 
     {
-        int Weapon();
+        GameObject Weapon();
     }
 }

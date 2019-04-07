@@ -4,7 +4,13 @@ using UnityEngine;
 public class EnemyLeft : MonoBehaviour, IShip, IHorizontalMovement, IVerticalMovement, IDestroyable
 {
     private float _dropoffPosition = -9f;
-    public int Health { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    private float nextFire;
+
+    public int Health { get; set; } = 1;
+
+    public GameObject shot;
+    public Transform shotSpawn;
+    public float fireRate;
 
     public void MoveHorizontal()
     {
@@ -18,13 +24,11 @@ public class EnemyLeft : MonoBehaviour, IShip, IHorizontalMovement, IVerticalMov
 
     public void Shoot()
     {
-        throw new System.NotImplementedException();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        if(Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+        }
     }
 
     // Update is called once per frame
@@ -33,7 +37,7 @@ public class EnemyLeft : MonoBehaviour, IShip, IHorizontalMovement, IVerticalMov
         MoveHorizontal();
         MoveVertical();
         DestroyGameObject();
-
+        Shoot();
     }
 
     public void DestroyGameObject()

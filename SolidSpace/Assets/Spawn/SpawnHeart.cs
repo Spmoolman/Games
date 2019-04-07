@@ -17,10 +17,4 @@ public class SpawnHeart : MonoBehaviour, ISpawn
     {
         InvokeRepeating("SpawnObject", SpawnTime, SpawnTime);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

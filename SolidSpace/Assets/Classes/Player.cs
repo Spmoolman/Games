@@ -7,7 +7,7 @@ public class Player : MonoBehaviour, IShip, IHorizontalMovement
     private IWeapon weapon;
     private float nextFire;
 
-    public GameObject shot;
+    public GameObject[] shot;
     public Transform shotSpawn;
     public float fireRate;
 
@@ -24,13 +24,14 @@ public class Player : MonoBehaviour, IShip, IHorizontalMovement
         if (Input.GetButton("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
-            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+            Instantiate(shot[1], shotSpawn.position, shotSpawn.rotation);
         }
     }
 
     // Use this for initialization
     void Start () {
-        weapon = new Laser();
+        //check if can get prefab
+        //weapon = Resources.Load("");
     }
 	
 	// Update is called once per frame

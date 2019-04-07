@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyRight : MonoBehaviour, IShip, IHorizontalMovement, IVerticalMovement, IDestroyable
 {
     private float _dropoffPosition = -9f;
+    private float nextFire;
 
     public int Health { get; set; } = 1;
 
@@ -23,12 +24,11 @@ public class EnemyRight : MonoBehaviour, IShip, IHorizontalMovement, IVerticalMo
 
     public void Shoot()
     {
-        Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
+        if (Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+        }
     }
 
     // Update is called once per frame
