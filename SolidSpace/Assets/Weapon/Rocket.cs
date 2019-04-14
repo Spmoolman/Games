@@ -29,11 +29,5 @@ namespace Assets.Weapon
             MoveVertical();
             DestroyGameObject();
         }
-
-        void OnTriggerEnter2D(Collider2D trigger)
-        {
-            Destroy(gameObject);
-            Destroy(trigger.gameObject);
-        }
     }
 }

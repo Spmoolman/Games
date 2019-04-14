@@ -39,6 +39,5 @@ public class EnemyLaser : MonoBehaviour, IVerticalMovement, IDestroyable
     void OnTriggerEnter2D(Collider2D trigger)
     {
         Destroy(gameObject);
-        Destroy(trigger.gameObject);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Assets.Interfaces;
+using System;
 using UnityEngine;
 
 public class EnemyLeft : MonoBehaviour, IShip, IHorizontalMovement, IVerticalMovement, IDestroyable
@@ -46,5 +47,17 @@ public class EnemyLeft : MonoBehaviour, IShip, IHorizontalMovement, IVerticalMov
         {
             Destroy(gameObject);
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D trigger)
+    {
+        TakeDamage();
+    }
+
+    public void TakeDamage()
+    {
+        Health--;
+        if (Health == 0)
+            Destroy(gameObject);
     }
 }

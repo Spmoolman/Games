@@ -1,15 +1,18 @@
-﻿using Assets.Weapon;
+﻿using System;
 using Assets.Interfaces;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour, IShip, IHorizontalMovement
 {
-    private IWeapon weapon;
     private float nextFire;
+    private int weaponCycler = 0;
 
     public GameObject[] shot;
     public Transform shotSpawn;
     public float fireRate;
+    public Slider healthSlider;
 
     public int Health { get; set; } = 3;
 
@@ -24,31 +27,59 @@ public class Player : MonoBehaviour, IShip, IHorizontalMovement
         if (Input.GetButton("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
-            Instantiate(shot[1], shotSpawn.position, shotSpawn.rotation);
+            Instantiate(shot[weaponCycler], shotSpawn.position, shotSpawn.rotation);
         }
     }
 
     // Use this for initialization
     void Start () {
-        //check if can get prefab
-        //weapon = Resources.Load("");
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
         MoveHorizontal();
         Shoot();
+        SwitchWeapons();
+    }
+
+    private void SwitchWeapons()
+    {
+        if (Input.GetButton("Fire2"))
+        {
+            if (shot.Length == weaponCycler+1)
+                weaponCycler = 0;
+            else
+                weaponCycler++;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D trigger)
     {
-        if (trigger.gameObject.name.Contains("Heart"))
-            Health++;
+        if (trigger.gameObject.name.Contains("Heart") )
+        {
+            if(Health < 10)
+                Health++;
+        }
         else
-            Health--;
+        {
+            TakeDamage();
+        }
 
-        print(Health);
+        healthSlider.value = Health;
+
         Destroy(trigger.gameObject);
+    }
+
+    public void TakeDamage()
+    {
+        Health--;
+        print(Health);
+
+        if (Health == 0)
+        {
+            Destroy(gameObject);
+            SceneManager.LoadScene("GameOver");
+        }
     }
 
 }
