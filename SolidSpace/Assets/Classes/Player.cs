@@ -64,10 +64,9 @@ public class Player : MonoBehaviour, IShip, IHorizontalMovement
         {
             TakeDamage();
         }
-
-        healthSlider.value = Health;
-
+        
         Destroy(trigger.gameObject);
+        healthSlider.value = Health;
     }
 
     public void TakeDamage()

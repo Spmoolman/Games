@@ -1,8 +1,7 @@
 ﻿using Assets.Interfaces;
-using System;
 using UnityEngine;
 
-public class EnemyRight : MonoBehaviour, IShip, IHorizontalMovement, IVerticalMovement, IDestroyable
+public class Enemy : MonoBehaviour, IShip, IHorizontalMovement, IVerticalMovement, IDestroyable
 {
     private float _dropoffPosition = -9f;
     private float nextFire;
@@ -12,10 +11,14 @@ public class EnemyRight : MonoBehaviour, IShip, IHorizontalMovement, IVerticalMo
     public GameObject shot;
     public Transform shotSpawn;
     public float fireRate;
+    public bool fromLeft;
 
     public void MoveHorizontal()
     {
-        transform.Translate(0.02f, 0f, 0f);
+        if(fromLeft)
+            transform.Translate(-0.02f, 0f, 0f);
+        else
+            transform.Translate(0.02f, 0f, 0f);
     }
 
     public void MoveVertical()

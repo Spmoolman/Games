@@ -55,8 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Classes\EnemyLeft.cs" />
-    <Compile Include="Assets\Classes\EnemyRight.cs" />
+    <Compile Include="Assets\Classes\Enemy.cs" />
     <Compile Include="Assets\Classes\Heart.cs" />
     <Compile Include="Assets\Classes\Player.cs" />
     <Compile Include="Assets\Classes\Scroller.cs" />
