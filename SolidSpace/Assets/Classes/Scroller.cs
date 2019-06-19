@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 
-public class Scroller : MonoBehaviour{
+public class Scroller : MonoBehaviour
+{
     float scrollSpeed = -5;
     Vector2 startPos;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         startPos = transform.position;
 	}
 	
